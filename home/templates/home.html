@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Quill2Byte{% endblock %}
+
+{% block content %}
+<div class="motto">
+    <strong>
+        <div id="motto-text">Your <span id="shake">Shakespearean Translator</span></div>
+    </strong>
+</div>
+<form method="post">{% csrf_token %}
+    <div class="outer-box">
+        <div class="input-container" id="input-container">
+            {{ form.choose_translator }}
+            <div class="input-box">
+                {{ form.input_text }}
+            </div>
+            <button type="submit" class="submit-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="submit-svg" height="24" viewBox="0 -960 960 960" width="24">
+                <path d="M762-96 645-212l-88 88-28-28q-23-23-23-57t23-57l169-169q23-23 57-23t57 23l28
+                    28-88 88 116 117q12 12 12 28t-12 28l-50 50q-12 12-28 12t-28-12Zm118-628L426-270l5 4q23 
+                    23 23 57t-23 57l-28 28-88-88L198-96q-12 12-28 12t-28-12l-50-50q-12-12-12-28t12-28l116-117-88
+                    -88 28-28q23-23 57-23t57 23l4 5 454-454h160v160ZM334-583l24-23 23-24-23 24-24 23Zm-56 
+                    57L80-724v-160h160l198 198-57 56-174-174h-47v47l174 174-56 57Zm92 199 430-430v-47h-47L323-374l47 
+                    47Zm0 0-24-23-23-24 23 24 24 23Z"/>
+                </svg>
+                Translate
+            </button>
+        </div>
+        <div class="output-container" id="output-container">
+            <div class="output-box" id="outputBox">
+                {% if converted_text != None %}
+                <div class="text-box">
+                    {{ converted_text }}
+                </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="copy-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="copy-svg" height="24" viewBox="0 -960 960 960" width="24">
+                    <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</form>
+{% endblock %}
