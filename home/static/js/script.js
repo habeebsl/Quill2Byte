@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         outputBox.style.overflowY = 'scroll';
         inputBox.style.height = '380px'
         inputContainer.style.height = '465px'
+        outputContainer.style.height = '465px'
     
     } else {
         if (outputBox.clientHeight > 214) {
